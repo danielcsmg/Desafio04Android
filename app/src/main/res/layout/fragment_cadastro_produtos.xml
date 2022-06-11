@@ -19,7 +19,7 @@
 
     <EditText
         android:id="@+id/etNomeProduto"
-        android:hint="@string/nome_do_produto"
+        android:hint="@string/hint_nome_do_produto"
         android:autofillHints="name"
         android:inputType="text"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
 
     <EditText
         android:id="@+id/etQtdProduto"
-        android:hint="@string/quantidade_produto"
+        android:hint="@string/hint_quantidade_produto"
         android:autofillHints="name"
         android:inputType="number"
         android:layout_width="0dp"
@@ -47,7 +47,7 @@
 
     <EditText
         android:id="@+id/etValorUnitario"
-        android:hint="@string/valor_unitario"
+        android:hint="@string/hint_valor_unitario"
         android:autofillHints="name"
         android:inputType="numberDecimal"
         android:layout_width="0dp"
@@ -61,7 +61,7 @@
 
     <EditText
         android:id="@+id/etReceita"
-        android:hint="@string/receita"
+        android:hint="@string/hint_receita"
         android:autofillHints="name"
         android:inputType="text"
         android:layout_width="0dp"

@@ -1,14 +1,20 @@
 package br.com.zup.simcitysaojoao.produtos.fragmentsprodutos
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.consts.BUNDLE
+import br.com.zup.simcitysaojoao.consts.PRODUTO
 import br.com.zup.simcitysaojoao.consts.PRODUTO_LISTA
 import br.com.zup.simcitysaojoao.databinding.FragmentProdutosCadastradosBinding
+import br.com.zup.simcitysaojoao.detalheproduto.DetalheProdutoActivity
 import br.com.zup.simcitysaojoao.models.Produto
 import br.com.zup.simcitysaojoao.produtos.adapter.ProdutoAdapter
 
@@ -30,9 +36,18 @@ class ProdutosCadastradosFragment : Fragment() {
 
         val reciclerView = binding.rvListaProdutos
         listaProdutos?.let {
-            val adapter = ProdutoAdapter(requireContext(), it)
+            val adapter = ProdutoAdapter(requireContext(), this::acessarDetalheProduto, it)
             reciclerView.adapter = adapter
             reciclerView.layoutManager = LinearLayoutManager(context)
         }
+    }
+
+    fun acessarDetalheProduto(produto: Produto, context: Context){
+        val bundle = bundleOf(PRODUTO to produto)
+
+        val intent = Intent(context, DetalheProdutoActivity::class.java).apply{
+            putExtra(BUNDLE, bundle)
+        }
+        startActivity(intent)
     }
 }

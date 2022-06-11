@@ -10,6 +10,7 @@ import br.com.zup.simcitysaojoao.models.Produto
 
 class ProdutoAdapter(
     val context: Context,
+    private var clickAlbum: (produto: Produto, context: Context) -> Unit,
     private var listaProdutos: ArrayList<Produto>
 ) : RecyclerView.Adapter<ProdutoAdapter.ViewHolder>() {
 
@@ -21,6 +22,9 @@ class ProdutoAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produto = listaProdutos[position]
         holder.exibirInformacoes(produto)
+        holder.binding.cvProduto.setOnClickListener{
+            clickAlbum(produto, context)
+        }
     }
 
     fun atualizarListaProduto(novaListaProduto: ArrayList<Produto>) {
