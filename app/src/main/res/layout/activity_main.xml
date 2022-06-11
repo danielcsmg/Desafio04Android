@@ -6,13 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
+    <ImageView
+        android:id="@+id/tvCadastro"
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_height="96dp"
+        android:contentDescription="@string/bandeirolas"
+        android:src="@drawable/balao"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="7dp"
+        android:text="@string/texto_apresentacao"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/tvCadastro" />
+
+    <Button
+        android:id="@+id/btnProdutos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cor3"
+        android:text="@string/ir_para_produtos"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@+id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

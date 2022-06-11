@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".produtos.fragmentsprodutos.CadastroProdutosFragment">
+
+    <TextView
+        android:id="@+id/tvCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastro_de_produtos"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etNomeProduto"
+        android:hint="@string/nome_do_produto"
+        android:autofillHints="name"
+        android:inputType="text"
+        android:layout_width="0dp"
+        android:textColorHint="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/tvCadastro" />
+
+    <EditText
+        android:id="@+id/etQtdProduto"
+        android:hint="@string/quantidade_produto"
+        android:autofillHints="name"
+        android:inputType="number"
+        android:layout_width="0dp"
+        android:textColorHint="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/etNomeProduto" />
+
+    <EditText
+        android:id="@+id/etValorUnitario"
+        android:hint="@string/valor_unitario"
+        android:autofillHints="name"
+        android:inputType="numberDecimal"
+        android:layout_width="0dp"
+        android:textColorHint="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/etQtdProduto" />
+
+    <EditText
+        android:id="@+id/etReceita"
+        android:hint="@string/receita"
+        android:autofillHints="name"
+        android:inputType="text"
+        android:layout_width="0dp"
+        android:textColorHint="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/etValorUnitario" />
+
+    <Button
+        android:id="@+id/btnCadastrarProduto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cor3"
+        android:text="@string/cadastrar_produto"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@+id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/etReceita" />
+
+    <Button
+        android:id="@+id/btnVerProdutos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cor4"
+        android:text="@string/ver_produtos"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@+id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/btnCadastrarProduto" />
+
+    <Button
+        android:id="@+id/btnValorTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cor2"
+        android:text="@string/valor_total"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tvCadastro"
+        app:layout_constraintStart_toStartOf="@+id/tvCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/btnVerProdutos" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

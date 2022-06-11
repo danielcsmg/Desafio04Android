@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/daniel.souza/Documents/Exercicio40Android/SimCitySoJoo/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/daniel.souza/Documents/Exercicio40Android/SimCitySoJoo/app/src/main/res/layout/activity_produtos.xml" value="0.21" />
         <entry key="..\:/Users/daniel.souza/Documents/Exercicio40Android/SimCitySoJoo/app/src/main/res/layout/activity_splash.xml" value="0.12" />
+        <entry key="..\:/Users/daniel.souza/Documents/Exercicio40Android/SimCitySoJoo/app/src/main/res/layout/card_produto.xml" value="0.5" />
+        <entry key="..\:/Users/daniel.souza/Documents/Exercicio40Android/SimCitySoJoo/app/src/main/res/layout/fragment_cadastro_produtos.xml" value="0.33" />
+        <entry key="..\:/Users/daniel.souza/Documents/Exercicio40Android/SimCitySoJoo/app/src/main/res/layout/fragment_produtos_cadastrados.xml" value="0.16" />
       </map>
     </option>
   </component>
