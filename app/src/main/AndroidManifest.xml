@@ -14,8 +14,11 @@
         android:theme="@style/Theme.SimCitySãoJoão"
         tools:targetApi="31">
         <activity
+            android:name=".total.TotalProdutosActivity"
+            android:exported="false" />
+        <activity
             android:name=".detalheproduto.DetalheProdutoActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".produtos.ProdutosActivity"
             android:exported="false" />

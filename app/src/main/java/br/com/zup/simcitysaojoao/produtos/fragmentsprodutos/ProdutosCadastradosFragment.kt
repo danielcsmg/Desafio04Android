@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.consts.BUNDLE
 import br.com.zup.simcitysaojoao.consts.PRODUTO
@@ -32,22 +33,23 @@ class ProdutosCadastradosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val listaProdutos = arguments?.getParcelableArrayList<Produto>(PRODUTO_LISTA)
-
-
-        val reciclerView = binding.rvListaProdutos
-        listaProdutos?.let {
-            val adapter = ProdutoAdapter(requireContext(), this::acessarDetalheProduto, it)
-            reciclerView.adapter = adapter
-            reciclerView.layoutManager = LinearLayoutManager(context)
-        }
+        val recyclerView = binding.rvListaProdutos
+        criarRecyclerView(listaProdutos, recyclerView)
     }
 
-    fun acessarDetalheProduto(produto: Produto, context: Context){
+    fun acessarDetalheProduto(produto: Produto, context: Context) {
         val bundle = bundleOf(PRODUTO to produto)
-
-        val intent = Intent(context, DetalheProdutoActivity::class.java).apply{
+        val intent = Intent(context, DetalheProdutoActivity::class.java).apply {
             putExtra(BUNDLE, bundle)
         }
         startActivity(intent)
+    }
+
+    private fun criarRecyclerView(listaProdutos:  ArrayList<Produto>?, recyclerView: RecyclerView){
+        listaProdutos?.let {
+            val adapter = ProdutoAdapter(requireContext(), this::acessarDetalheProduto, it)
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(context)
+        }
     }
 }

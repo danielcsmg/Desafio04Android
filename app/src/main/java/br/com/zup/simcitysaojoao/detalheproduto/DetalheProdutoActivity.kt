@@ -1,6 +1,7 @@
 package br.com.zup.simcitysaojoao.detalheproduto
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -47,5 +48,13 @@ class DetalheProdutoActivity : AppCompatActivity() {
         coracao.setOnClickListener {
             Toast.makeText(this, MENSAGEM_FAVORITO_SUCESSO, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

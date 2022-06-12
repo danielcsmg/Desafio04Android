@@ -10,7 +10,7 @@
     <string name="hint_valor_unitario">Valor (unitário) do produto</string>
     <string name="hint_receita">Receita</string>
     <string name="ver_produtos">Ver produtos</string>
-    <string name="valor_total">Valor total</string>
+    <string name="botao_valor_total">Valor total</string>
     <string name="cadastrar_produto">cadastrar produto</string>
     <string name="carrinho_de_compras">carrinho de compras</string>
     <string name="produto_titulo_card">%s - %s</string>
@@ -18,4 +18,7 @@
     <string name="valor_unitario">Valor unitário: %s</string>
     <string name="receita">Receita: %s</string>
     <string name="imagem_coracao">Imagem de um coração para favoritar</string>
+    <string name="cadastrar_novo_produto">Cadastrar novo produto</string>
+    <string name="valor_total">O valor total de todos os produtos é de: R$%s</string>
+    <string name="texto_teste">Texto para teste!</string>
 </resources>

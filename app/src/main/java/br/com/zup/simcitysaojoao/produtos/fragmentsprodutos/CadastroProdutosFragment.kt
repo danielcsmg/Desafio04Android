@@ -1,5 +1,6 @@
 package br.com.zup.simcitysaojoao.produtos.fragmentsprodutos
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,10 +12,12 @@ import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.consts.BUNDLE
 import br.com.zup.simcitysaojoao.consts.MENSAGEM_CADASTRO_SUCESSO
 import br.com.zup.simcitysaojoao.consts.PRODUTO_LISTA
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastroProdutosBinding
 import br.com.zup.simcitysaojoao.models.Produto
+import br.com.zup.simcitysaojoao.total.TotalProdutosActivity
 
 class CadastroProdutosFragment : Fragment() {
     private var listaProdutos = arrayListOf<Produto>()
@@ -84,7 +87,12 @@ class CadastroProdutosFragment : Fragment() {
     }
 
     private fun mostrarTotal() {
+        val bundle = bundleOf(PRODUTO_LISTA to listaProdutos)
+        val intent = Intent(context, TotalProdutosActivity::class.java).apply {
+            putExtra(BUNDLE, bundle)
+        }
 
+        startActivity(intent)
     }
 
     fun limparInformacoes() {

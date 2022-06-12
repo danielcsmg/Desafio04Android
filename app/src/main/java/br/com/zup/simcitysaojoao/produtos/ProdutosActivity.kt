@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import br.com.zup.simcitysaojoao.R
+import br.com.zup.simcitysaojoao.consts.BUNDLE
 import br.com.zup.simcitysaojoao.consts.PRODUTOS
 import br.com.zup.simcitysaojoao.consts.PRODUTO_LISTA
 import br.com.zup.simcitysaojoao.databinding.ActivityProdutosBinding
@@ -20,21 +21,33 @@ class ProdutosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProdutosBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        configurarAppBar()
 
+        val bundle = intent.getBundleExtra(BUNDLE)
+        val irParaFragmentListaProdutos = bundle?.getBoolean("IR_PARA_FRAGMENT_LISTA") ?: false
+        val nav = supportFragmentManager
+            .findFragmentById(binding.navHostFragment.id) as NavHostFragment
+
+        navegarParaFragmentProdutosCadastrados(
+            irParaFragmentListaProdutos,
+            nav,
+            bundle
+        )
+    }
+
+    private fun configurarAppBar() {
         supportActionBar?.title = PRODUTOS
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
-        val irParaFragmentListaProdutos = false
-
-        val nav = supportFragmentManager.findFragmentById(binding.navHostFragment.id) as NavHostFragment
-
-        if(irParaFragmentListaProdutos){
+    private fun navegarParaFragmentProdutosCadastrados(irParaFragment: Boolean, nav: NavHostFragment, bundle: Bundle?) {
+        if (irParaFragment) {
             nav.findNavController()
                 .navigate(
                     R.id.action_cadastroProdutosFragment_to_produtosCadastradosFragment,
-                    )
+                    bundle
+                )
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
