@@ -17,6 +17,7 @@ import br.com.zup.simcitysaojoao.consts.PRODUTO_LISTA
 import br.com.zup.simcitysaojoao.databinding.FragmentProdutosCadastradosBinding
 import br.com.zup.simcitysaojoao.detalheproduto.DetalheProdutoActivity
 import br.com.zup.simcitysaojoao.models.Produto
+import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
 import br.com.zup.simcitysaojoao.produtos.adapter.ProdutoAdapter
 
 class ProdutosCadastradosFragment : Fragment() {

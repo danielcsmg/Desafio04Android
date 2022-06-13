@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        irParaCadastroProdutos()
+    }
+
+    fun irParaCadastroProdutos(){
         binding.btnProdutos.setOnClickListener {
             startActivity(Intent(this, ProdutosActivity::class.java))
         }

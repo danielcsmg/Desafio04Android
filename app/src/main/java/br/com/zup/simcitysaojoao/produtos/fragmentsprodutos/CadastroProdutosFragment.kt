@@ -17,6 +17,7 @@ import br.com.zup.simcitysaojoao.consts.MENSAGEM_CADASTRO_SUCESSO
 import br.com.zup.simcitysaojoao.consts.PRODUTO_LISTA
 import br.com.zup.simcitysaojoao.databinding.FragmentCadastroProdutosBinding
 import br.com.zup.simcitysaojoao.models.Produto
+import br.com.zup.simcitysaojoao.produtos.ProdutosActivity
 import br.com.zup.simcitysaojoao.total.TotalProdutosActivity
 
 class CadastroProdutosFragment : Fragment() {
@@ -53,6 +54,7 @@ class CadastroProdutosFragment : Fragment() {
             R.id.action_cadastroProdutosFragment_to_produtosCadastradosFragment,
             bundle
         )
+        limparInformacoes()
     }
 
     private fun cadastrarProduto() {

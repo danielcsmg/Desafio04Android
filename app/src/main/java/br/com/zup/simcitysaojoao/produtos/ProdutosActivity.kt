@@ -1,23 +1,18 @@
 package br.com.zup.simcitysaojoao.produtos
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
-import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import br.com.zup.simcitysaojoao.R
 import br.com.zup.simcitysaojoao.consts.BUNDLE
 import br.com.zup.simcitysaojoao.consts.PRODUTOS
-import br.com.zup.simcitysaojoao.consts.PRODUTO_LISTA
 import br.com.zup.simcitysaojoao.databinding.ActivityProdutosBinding
-import br.com.zup.simcitysaojoao.models.Produto
 
 class ProdutosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProdutosBinding
-    var irParaFragmentListaProdutos = false
+    private var irParaFragmentListaProdutos = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProdutosBinding.inflate(layoutInflater)
@@ -25,7 +20,7 @@ class ProdutosActivity : AppCompatActivity() {
         configurarAppBar()
 
         val bundle = intent.getBundleExtra(BUNDLE)
-        irParaFragmentListaProdutos = bundle?.getBoolean("IR_PARA_FRAGMENT_LISTA") ?: false
+        irParaFragmentListaProdutos = controleIrParaProdutosCadastrados(bundle)
         val nav = supportFragmentManager
             .findFragmentById(binding.navHostFragment.id) as NavHostFragment
 
@@ -61,5 +56,9 @@ class ProdutosActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    fun controleIrParaProdutosCadastrados(bundle: Bundle?): Boolean{
+        return bundle?.getBoolean("IR_PARA_FRAGMENT_LISTA") ?: false
     }
 }
