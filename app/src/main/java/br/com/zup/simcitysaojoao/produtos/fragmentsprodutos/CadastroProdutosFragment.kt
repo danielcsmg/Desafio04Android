@@ -33,12 +33,12 @@ class CadastroProdutosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        clicarBotao(binding.btnVerProdutos, this::acessarListaProduto)
         clicarBotao(binding.btnCadastrarProduto, this::cadastrarProduto)
+        clicarBotao(binding.btnVerProdutos, this::acessarListaProduto)
         clicarBotao(binding.btnValorTotal, this::mostrarTotal)
     }
 
-    fun clicarBotao(
+    private fun clicarBotao(
         button: Button,
         funcao: () -> Unit
     ) {
@@ -47,7 +47,7 @@ class CadastroProdutosFragment : Fragment() {
         }
     }
 
-    fun acessarListaProduto() {
+    private fun acessarListaProduto() {
         val bundle = bundleOf(PRODUTO_LISTA to listaProdutos)
         NavHostFragment.findNavController(this).navigate(
             R.id.action_cadastroProdutosFragment_to_produtosCadastradosFragment,
@@ -55,7 +55,7 @@ class CadastroProdutosFragment : Fragment() {
         )
     }
 
-    fun cadastrarProduto() {
+    private fun cadastrarProduto() {
         val produto = verificarProdutos()
         if (produto != null) {
             listaProdutos.add(produto)
@@ -64,7 +64,7 @@ class CadastroProdutosFragment : Fragment() {
         }
     }
 
-    fun verificarProdutos(): Produto? {
+    private fun verificarProdutos(): Produto? {
         val nomeProduto = binding.etNomeProduto.text.toString()
         val qtdProduto = binding.etQtdProduto.text.toString()
         val valorUnitario = binding.etValorUnitario.text.toString()
@@ -95,18 +95,18 @@ class CadastroProdutosFragment : Fragment() {
         startActivity(intent)
     }
 
-    fun limparInformacoes() {
+    private fun limparInformacoes() {
         binding.etNomeProduto.text.clear()
         binding.etQtdProduto.text.clear()
         binding.etValorUnitario.text.clear()
         binding.etReceita.text.clear()
     }
 
-    fun mensagemErro(editText: EditText, input: String?, msg: String) {
+    private fun mensagemErro(editText: EditText, input: String?, msg: String) {
         editText.error = if (input.isNullOrBlank()) msg else null
     }
 
-    fun toastCadastroSucesso(){
+    private fun toastCadastroSucesso(){
         Toast.makeText(context, MENSAGEM_CADASTRO_SUCESSO, Toast.LENGTH_SHORT).show()
     }
 }

@@ -17,6 +17,7 @@ import br.com.zup.simcitysaojoao.models.Produto
 
 class ProdutosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProdutosBinding
+    var irParaFragmentListaProdutos = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProdutosBinding.inflate(layoutInflater)
@@ -24,7 +25,7 @@ class ProdutosActivity : AppCompatActivity() {
         configurarAppBar()
 
         val bundle = intent.getBundleExtra(BUNDLE)
-        val irParaFragmentListaProdutos = bundle?.getBoolean("IR_PARA_FRAGMENT_LISTA") ?: false
+        irParaFragmentListaProdutos = bundle?.getBoolean("IR_PARA_FRAGMENT_LISTA") ?: false
         val nav = supportFragmentManager
             .findFragmentById(binding.navHostFragment.id) as NavHostFragment
 
@@ -52,7 +53,11 @@ class ProdutosActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            if(irParaFragmentListaProdutos){
+                finish()
+            }else{
+                onBackPressed()
+            }
             return true
         }
         return super.onOptionsItemSelected(item)
