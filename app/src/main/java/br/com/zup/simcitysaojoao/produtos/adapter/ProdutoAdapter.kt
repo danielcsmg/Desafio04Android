@@ -27,16 +27,6 @@ class ProdutoAdapter(
         }
     }
 
-    fun atualizarListaProduto(novaListaProduto: ArrayList<Produto>) {
-        if (listaProdutos.size == 0) {
-            listaProdutos = novaListaProduto
-        } else {
-            listaProdutos.addAll(novaListaProduto)
-        }
-
-        notifyDataSetChanged()
-    }
-
     override fun getItemCount(): Int = listaProdutos.size
 
 

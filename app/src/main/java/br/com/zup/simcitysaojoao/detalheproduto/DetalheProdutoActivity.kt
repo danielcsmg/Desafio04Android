@@ -7,10 +7,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.zup.simcitysaojoao.R
-import br.com.zup.simcitysaojoao.consts.BUNDLE
-import br.com.zup.simcitysaojoao.consts.MENSAGEM_FAVORITO_SUCESSO
-import br.com.zup.simcitysaojoao.consts.PRODUTO
-import br.com.zup.simcitysaojoao.consts.TITULO_DETALHE_PRODUTO
+import br.com.zup.simcitysaojoao.consts.*
 import br.com.zup.simcitysaojoao.databinding.ActivityDetalheProdutoBinding
 import br.com.zup.simcitysaojoao.models.Produto
 
@@ -20,18 +17,15 @@ class DetalheProdutoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = TITULO_DETALHE_PRODUTO
-
         binding = ActivityDetalheProdutoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        configurarAppBar()
         mostrarInformacoesProduto()
         favoritarProduto(binding.ivFavoritar)
     }
 
-    fun mostrarInformacoesProduto() {
+    private fun mostrarInformacoesProduto() {
         val bundle = intent.getBundleExtra(BUNDLE)
         val produto = bundle?.getParcelable<Produto>(PRODUTO)
         produto?.let {
@@ -44,7 +38,7 @@ class DetalheProdutoActivity : AppCompatActivity() {
         }
     }
 
-    fun favoritarProduto(coracao: ImageView){
+    private fun favoritarProduto(coracao: ImageView){
         coracao.setOnClickListener {
             Toast.makeText(this, MENSAGEM_FAVORITO_SUCESSO, Toast.LENGTH_SHORT).show()
         }
@@ -56,5 +50,10 @@ class DetalheProdutoActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun configurarAppBar() {
+        supportActionBar?.title = TITULO_DETALHE_PRODUTO
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

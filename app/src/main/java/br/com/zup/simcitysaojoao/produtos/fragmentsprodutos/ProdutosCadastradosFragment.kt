@@ -38,7 +38,7 @@ class ProdutosCadastradosFragment : Fragment() {
         criarRecyclerView(listaProdutos, recyclerView)
     }
 
-    fun acessarDetalheProduto(produto: Produto, context: Context) {
+    private fun acessarDetalheProduto(produto: Produto, context: Context) {
         val bundle = bundleOf(PRODUTO to produto)
         val intent = Intent(context, DetalheProdutoActivity::class.java).apply {
             putExtra(BUNDLE, bundle)

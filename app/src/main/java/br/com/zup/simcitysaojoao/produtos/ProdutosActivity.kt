@@ -58,7 +58,7 @@ class ProdutosActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun controleIrParaProdutosCadastrados(bundle: Bundle?): Boolean{
+    private fun controleIrParaProdutosCadastrados(bundle: Bundle?): Boolean{
         return bundle?.getBoolean("IR_PARA_FRAGMENT_LISTA") ?: false
     }
 }

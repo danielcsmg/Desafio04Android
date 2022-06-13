@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         irParaCadastroProdutos()
     }
 
-    fun irParaCadastroProdutos(){
+    private fun irParaCadastroProdutos(){
         binding.btnProdutos.setOnClickListener {
             startActivity(Intent(this, ProdutosActivity::class.java))
         }
